@@ -1,0 +1,133 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+
+\begin{document}
+
+	\begin{equation}
+		\begin{aligned}
+			\frac{dM_R}{dt} ={} & sr_M + \alpha_{4A}(M_A + \omega_2 M_1) + sr_{4B} \frac{F_a}{F_a + f_8 I_{10} + s_{4b}} \\
+			& - k_2 M_R \frac{B_E}{B_E + c_9} -  k_3 M_R \frac{I_{\gamma}}{I_{\gamma} + f_1 I_4 + s_1} \frac{B_T + \beta F_{\alpha}}{B_T + \beta F_{\alpha} + c_8} \\
+			&- \mu_{MR} M_R
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{dM_I}{dt} ={} & k_2 M_R \frac{B_E}{B_E + c_9} - k_{17} M_I \frac{B_I^2} {B_I^2 + (N M_1)^2} \\
+			& - k_{14A} M_I \frac{(T_c + \omega_3 T_1)/M_1}{(T_c + \omega_3 T_1)/M_1 + c_4} - k_{14B} M_I \frac{F_\alpha}{F_\alpha + f_9 I_{10} + s_{4B}} \\
+			& - k_{52} M_I \frac{(T_c (T_1 / (T_1 + c_{T1})) + \omega_1 T_1)/M_I}{(T_c (T_1 / (T_1 + c_{T1})) + \omega_1 T_1)/M_I + c_{52}} - \mu_{MI} M_I
+		\end{aligned}
+	\end{equation}
+
+	\begin{equation}
+		\begin{aligned}
+			\frac{dM_A}{dt} ={} & k_3 M_R \frac{I_{\gamma}}{I_{\gamma} + f_1 I_4 + s_1} \frac{B_T + \beta F_{\alpha}}{B_T + \beta F_{\alpha} + c_8} - k_4 M_A \frac{I_{10}}{I_{10} + s_8} - \mu_{MA} M_A
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{dT_0}{dt} ={} & \alpha_{1A}(M_A + \omega_2 M_I) + sr_{1B} \frac{F_a}{F_a + f_8 I_{10} + s_{4b2}} + \alpha_2 T_0 \frac{M_A} {M_A + c_{15}}\\
+			&- k_6 I_{12} T_0 \frac{I_\gamma}{I_\gamma + (f_1 I_4 + f_7 I_{10}) + s_1} - k_7 T_0 \frac{I_4}{I_4 + f_2 I_\gamma + s_2}\\
+			&- \mu_{T0} T_0
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{dT_1}{dt} ={} & \alpha_{3A}(M_A + \omega_2 M_I) + sr_{3B} \frac{F_a}{F_a + f_8 I_{10} + s_{4b1}}\\
+			&+ k_6 I_{12} T_0 \frac{I_\gamma}{I_\gamma + (f_1 I_4 + f_7 I_{10}) + s_1} -\mu_{T\gamma} \frac{I_\gamma}{I_\gamma +c} T_1 M_A - \mu_{T1} T_1
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{dT_2}{dt} ={} & \alpha_{3A2}(M_A + \omega_2 M_I) + sr_{3B2} \frac{F_a}{F_a + f_8 I_{10} + s_{4b1}}\\
+			&+ k_7 T_0 \frac{I_4}{I_4 + f_2 I_\gamma + s_2} - \mu_{T2} T_2
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{dT_{80}}{dt} ={} & \alpha_{1A}(M_A + \omega_2 M_I) + sr_{1B} \frac{F_a}{F_a + f_8 I_{10} + s_{4b2}} + \alpha_2 T_{80} \frac{M_A} {M_A + c_{15}}\\
+			&- k_6 I_{12} T_{80} \frac{I_\gamma}{I_\gamma + (f_1 I_4 + f_7 I_{10}) + s_1} \\
+			&- \mu_{T80} T_{80}
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{dT_8}{dt} ={} & m * \alpha_{3Ac}(M_A + \omega_2 M_I) + m * sr_{3Bc} \frac{F_a}{F_a + f_8 I_{10} + s_{4b1}}\\
+			&+ m * k_6 I_{12} T_{80} \frac{I_\gamma}{I_\gamma + (f_1 I_4 + f_7 I_{10}) + s_1} -\mu_{Tc\gamma} \frac{I_\gamma}{I_\gamma +c_c} T_8 M_A\\
+			& - \mu_{T8} T_8
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{dT_c}{dt} ={} & m * \alpha_{3Ac}(M_A + \omega_2 M_I) + m * sr_{3Bc} \frac{F_a}{F_a + f_8 I_{10} + s_{4b1}}\\
+			&+ m * k_6 I_{12} T_{80} \frac{I_\gamma}{I_\gamma + (f_1 I_4 + f_7 I_{10}) + s_1} -\mu_{Tc\gamma} \frac{I_\gamma}{I_\gamma +c_c} T_c M_A\\
+			& - \mu_{Tc} T_c
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{dF_\alpha}{dt} ={} & \alpha_{30} M_I + \alpha_{30} M_A \frac{I_\gamma + \beta_2 B_T}{I_\gamma + \beta_2 B_T + (f_1 I_4 + f_7 I_{10}) + s_{10}}\\
+			& + \alpha_{32} T_1 + \alpha_{33} (T_c + T_8) - \mu_{F\alpha} F_\alpha
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{dI_\gamma}{dt} ={} & s_g \frac{B_T}{B_T + c_{10}} \frac{I_{12}}{I_{12} + s_7} + \alpha_{5A} T_1 \frac{M_A}{M_A + c_{5A}} + \alpha_{5B} T_8 \frac{M_A}{M_A + c_{5B}}\\
+			& + \alpha_{5c} M_I + \alpha_7 T_0 \frac{I_{12}}{I_{12} + f_4 I_{10} + s_4} + \alpha_7 T_{80} \frac{I_{12}}{I_{12} + f_4 I_{10} + s_4}\\
+			& - \mu_{I\gamma} I_\gamma
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{dI_{12}}{dt} ={} & s_{12} \frac{B_T}{B_T + c_{230}} + \alpha_{23} M_R \frac{B_T}{B_T + c_{23}} + \alpha_8 M_A \frac{s}{s + I_{10}} - \mu_{I12} I_{12}
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{dI_{10}}{dt} ={} & \delta_7 M_A \frac{s_6}{I_{10} + f_6 I_\gamma + s_6} + \alpha_{16} T_1 + \alpha_{17} T_2 + \alpha_{18} (T_8 + T_c) - \mu_{I10} I_{10}
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{dI_4}{dt} ={} & \alpha_{11} T_0 + \alpha_{12} T_2 - \mu_{I4} I_4
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{dI_4}{dt} ={} & \alpha_{11} T_0 + \alpha_{12} T_2 - \mu_{I4} I_4
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{dB_I}{dt} ={} & \alpha_{19} B_I \left(1 - \frac{B_I^2} {B_I^2 + (N M_1)^2}\right) +  k_2 \frac{N}{2} M_R \frac{B_E}{B_E + c_9}\\
+			& - k_{17} N M_I \frac{B_I^2} {B_I^2 + (N M_1)^2} - k_{14A} N M_I \frac{(T_c + \omega_3 T_1)/M_1}{(T_c + \omega_3 T_1)/M_1 + c_4}\\
+			& - k_{14B} N M_I \frac{F_\alpha}{F_\alpha + f_9 I_{10} + s_{4b}}\\
+			& - k_{52} N * M_I \frac{(T_c (T_1 / (T_1 + c_{T1})) + \omega_1 T_1)/M_I}{(T_c (T_1 / (T_1 + c_{T1})) + \omega_1 T_1)/M_I + c_{52}} - \mu_I B_I
+		\end{aligned}
+	\end{equation}
+	
+	\begin{equation}
+		\begin{aligned}
+			\frac{dB_E}{dt} ={} & \alpha_{20} B_E + \mu_I B_I - k_{15} M_A B_E - k_{18} M_R B_E + k_{17} N M_I \frac{B_I^2} {B_I^2 + (N M_1)^2}\\
+			& - k_2 \frac{N}{2} M_R \frac{B_E}{B_E + c_9} + k_{14A} N * N_{fracc} M_I \frac{(T_c + \omega_3 T_1)/M_1}{(T_c + \omega_3 T_1)/M_1 + c_4}\\
+			& + k_{14B} N * N_{fraca} M_I \frac{F_\alpha}{F_\alpha + f_9 I_{10} + s_{4b}}
+		\end{aligned}
+	\end{equation}
+	
+	
+
+\end{document}
