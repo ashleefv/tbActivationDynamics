@@ -14,12 +14,8 @@ import time
 
 
 def ParamAdjust(itKey, parameters, y0, t0, t, baselineLeakage, scale, sampleTiming, ModelName=ColDetModel):
+    #Run the model with the appropriate changes
     
-
-     
-    
-    
-        
     parameters[itKey] = parameters[itKey] * scale
     model = ModelName()
     sol = odeint(model.DifEqs, y0, t, args = (parameters,), full_output = 0, atol = 1.0e-1, hmax = t0[2])
@@ -40,57 +36,48 @@ def ParamAdjust(itKey, parameters, y0, t0, t, baselineLeakage, scale, sampleTimi
     return [itKey, gain]
     
 def RunTask(inQueue, outQueue):
+    #Function run by the child processes to handle tasks and report results
     while(1):
         func,args = inQueue.get()
         
-        #print(func)
-        #print(args)
         outQueue.put(func(*args))
-        #For some reason, it seems some weirdness happens with pushing to finishQueue. This sleep command is here to help mitigate that
-        #time.sleep(0.1)
+        
         inQueue.task_done()
     
 if __name__ == '__main__':
     
-    numCPUs = multiprocessing.cpu_count()    
-    #numCPUs = 4    
+    #initialization
+    
+    numCPUs = multiprocessing.cpu_count()       
     
     inputSource='ColDet-model-parameters.csv'
     scales = (1.05, 1.04, 1.03, 1.02, 1.01, 0.99, 0.98, 0.97, 0.96, 0.95)
     #scales = (1.05,0.95)
+    
+    #Depreciated
     sampleTiming = 365
     y0, t0, parameters = ImportParamFromFile(inputSource, ColDetModel)
- 
+
+    #Runbase case
     t = np.arange(t0[0],t0[1]+t0[2],t0[2])   
-#    t = np.array(range(int((t0[1]+t0[2])/t0[2])))
-#    t = t0[2] * t
-    # t =  range(initialTime, finalTime + timeStep, timeStep)  
     
     model = ColDetModel()
     sol = odeint(model.DifEqs, y0, t, args = (parameters,), full_output = 0, atol = 1.0e-1, hmax = t0[2])
     
-    while (model.tSwitch > (t[-1] - (sampleTiming*3.5))):
-        t = np.arange(t0[0],(t[-1]*1.5)+t0[2],t0[2])
-        sol = odeint(model.DifEqs, y0, t, args = (parameters,), full_output = 0, atol = 1.0e-1, hmax = t0[2])
-        
-    t = np.arange(t0[0],t0[1]+t0[2],t0[2])
-        
-    switchIndex = math.ceil(model.tSwitch / t0[2])
-    
-    indexArray = -1
-    
+    indexArray = -1    
     baselineLeakage = np.array(sol[indexArray,19])
     
     #reinit parameters to revert changes that may have occured calculation of the model
     y0, t0, parameters = ImportParamFromFile(inputSource, ColDetModel)
     
+    #initializing multiprocessing
     processes = []
     resultsArrays= []
-    finishQueues = []
-    
+    finishQueues = []    
     multiprocessing.freeze_support()    
-
-    runQueue = multiprocessing.JoinableQueue()    
+    runQueue = multiprocessing.JoinableQueue()  
+    
+    #Set up results Queues and Processes
     for i in range(numCPUs):
         finishQueues.append(multiprocessing.Queue())
         print('Made result Queue #' + repr(i+1))
@@ -98,21 +85,22 @@ if __name__ == '__main__':
         processes[i].start()
         print('Made process #' + repr(i+1))
         
-
+    #Run sensativity analysis for each scale factor
     paramKeys = list(parameters.keys())        
     
     for j in range(len(scales)):
+        
         keyArray = np.empty(0)
         gainArray = np.empty(0)
         
-        
-        
+        #Set up and push tasks to queue
         tasks = [(ParamAdjust, (key, parameters, y0, t0, t, baselineLeakage, scales[j], sampleTiming)) for key in paramKeys]
         for task in tasks:
             runQueue.put_nowait(task)
             
         runQueue.join()
         
+        #Pull results and append them to a list defined in an outer scope
         results = []
         for i in range(len(finishQueues)):
             while(not finishQueues[i].empty()):
@@ -127,17 +115,18 @@ if __name__ == '__main__':
         
         resultsArrays.append(compositeArray)
                 
-                
+
     for i in range(len(processes)):
             processes[i].terminate()  
-            
-    resultsOutput = np.empty((len(keyArray)+1, 0))
-    dType1 = np.dtype([('param', '<U32'), ('100 Days', '<U32')])
-    dType2 = np.dtype('<U32')
-    
+    #Dump results       
     file = open('LocalSensitivity.p', 'wb')
     pickle.dump(resultsArrays, file)
     file.close()
+    
+    #Organize results into a spreadsheet        
+    resultsOutput = np.empty((len(keyArray)+1, 0))
+    dType1 = np.dtype([('param', '<U32'), ('100 Days', '<U32')])
+    dType2 = np.dtype('<U32')
     
     for i in range(len(scales)):
         
@@ -154,6 +143,3 @@ if __name__ == '__main__':
     
     np.savetxt('SensativityAnalysis.csv', resultsOutput, fmt = '%s', delimiter = ',')
     
-    file = open('LocalSensitivity.p', 'wb')
-    pickle.dump(resultsArrays, file)
-    file.close()

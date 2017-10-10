@@ -14,21 +14,19 @@
 
 from ImportParamFromFile import ImportParamFromFile
 from scipy.integrate import odeint
-from DetModel import DetModel
+from ColDetModel import ColDetModel
 import numpy as np
-def RunModel(model=DetModel(), inputMode='file', inputSource='Deterministic-model-parameters.csv', paramsIn=None):
+def RunModel(model=ColDetModel(), inputMode='file', inputSource='Deterministic-model-parameters.csv', paramsIn=None):
 
     
-    #Maybe at somepoint I should use my psuedo-switch here
+    
     if (inputMode == 'file'):
         y0, t0, parameters = ImportParamFromFile(inputSource, model)
         t = np.arange(t0[0],t0[1]+t0[2],t0[2])  
-        # t =  range(initialTime, finalTime + timeStep, timeStep) 
         
     if (inputMode == 'arg'):
         y0, t, parameters = paramsIn
      
-    #sol = odeint(model.DifEqs, y0, t, args = (parameters,), full_output = 0, atol = 1.0e-1, hmax = (t[1] - t[0]))
     sol = odeint(model.DifEqs, y0, t, args = (parameters,), full_output = 0, atol = 1.0e-1)
     
 

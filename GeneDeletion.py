@@ -27,9 +27,73 @@ model2.baseParameters = dict(p)
 def DeleteGene(self,y,t,p):
          
     return 0
+    
+### Uncomment one of the below ###
+### Leaking ###
+    
+deletedGene = "$M_A$"        
+model2.dM_Adt = types.MethodType(DeleteGene, model)
 
-deletedGene = "$I_y$"        
-model2.dI_ydt = types.MethodType(DeleteGene, model)
+###################################
+    
+#deletedGene = "$T_8$"        
+#model2.dT_8dt = types.MethodType(DeleteGene, model)
+
+###################################
+### Latent ###
+    
+#deletedGene = "$T_2$"        
+#model2.dT_2dt = types.MethodType(DeleteGene, model)
+
+###################################
+ 
+#deletedGene = "$I_{10}$"        
+#model2.dI_10dt = types.MethodType(DeleteGene, model)
+
+###################################
+    
+#deletedGene = "$I_4$"        
+#model2.dI_4dt = types.MethodType(DeleteGene, model)
+
+###################################
+### Active ###
+    
+#deletedGene = "$T_1$"        
+#model2.dT_1dt = types.MethodType(DeleteGene, model)
+
+###################################
+    
+#deletedGene = "$F_a$"        
+#model2.dF_adt = types.MethodType(DeleteGene, model)
+
+###################################
+    
+#deletedGene = "$I_y$"        
+#model2.dI_ydt = types.MethodType(DeleteGene, model)
+
+###################################
+### Periodic Switching ##
+    
+#deletedGene = "$T_0$"        
+#model2.dT_0dt = types.MethodType(DeleteGene, model)
+
+###################################
+    
+#deletedGene = "$T_{80}$"        
+#model2.dT_80dt = types.MethodType(DeleteGene, model)
+
+###################################
+   
+#deletedGene = "$I_{12}$"        
+#model2.dI_12dt = types.MethodType(DeleteGene, model)
+
+###################################
+###Causes Simulation Errors ###
+ 
+#deletedGene = "$T_c$"        
+#model2.dT_cdt = types.MethodType(DeleteGene, model)
+
+###################################
 
 
 y2,t2,p2,sol2,model2 = RunModel(model=model2, inputMode='file', inputSource='ColDet-model-parameters.csv')
@@ -60,7 +124,8 @@ plt.show()
 
 plt.figure(3)
 plt.semilogy(t, sol[:,16], 'c-', label = 'Baseline', linewidth = 3)
-plt.semilogy(t, sol2[:,16], 'k--', label = (deletedGene + 'Deleted'), linewidth = 3)
+plt.semilogy(t, sol2[:,16], 'k--', label = (deletedGene + ' Deleted'), linewidth = 3)
+plt.legend(loc=int(4), fontsize = fontSize)
 plt.xlabel('Time (Days)', fontsize = fontSize)
 plt.ylabel('Extracellular Bacteria Count', fontsize = fontSize)
 #plt.savefig('B-E-Gene-Deletion.jpg', dpi=DPI)
@@ -68,7 +133,7 @@ plt.show()
 
 plt.figure(4)
 plt.semilogy(t, sol[:,17], 'c-', label = 'Baseline', linewidth = 3)
-plt.semilogy(t, sol2[:,17], 'k--', label = (deletedGene + 'Deleted'), linewidth = 3)
+plt.semilogy(t, sol2[:,17], 'k--', label = (deletedGene + ' Deleted'), linewidth = 3)
 plt.legend(loc=int(4), fontsize = fontSize)
 plt.xlabel('Time (Days)', fontsize = fontSize)
 plt.ylabel('Collagen', fontsize = fontSize)
@@ -77,7 +142,8 @@ plt.show()
 
 plt.figure(5)
 plt.semilogy(t, sol[:,19], 'c-', label = 'Baseline', linewidth = 3)
-plt.semilogy(t, sol2[:,19], 'k--', label = '$T_1$ Deleted', linewidth = 3)
+plt.semilogy(t, sol2[:,19], 'k--', label = (deletedGene + ' Deleted'), linewidth = 3)
+plt.legend(loc=int(4), fontsize = fontSize)
 plt.xlabel('Time (Days)', fontsize = fontSize)
 plt.ylabel('Bacterial Leakage', fontsize = fontSize)
 #plt.savefig('B-L-Gene-Deletion.jpg', dpi=DPI)

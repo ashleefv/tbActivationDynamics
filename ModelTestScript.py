@@ -8,8 +8,6 @@ Created on Tue Sep  6 23:02:44 2016
 
 from RunModel import RunModel
 import matplotlib.pyplot as plt
-from WSDetModel import WSDetModel
-from DetModel import DetModel
 from ColDetModel import ColDetModel
 import time
 
