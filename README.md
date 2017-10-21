@@ -1,8 +1,7 @@
 # tbActivationDynamics
 A computational model that aims to capture the effect of MMP-1 on tuberculosis (TB) disease outcome including initial activation (uncontrolled infection), latent infection (steady state), and the transition from latent to active TB after biological perturbations.
 
-[![DOI] (https://zenodo.org/badge/102527971.svg)] (https://zenodo.org/badge/latestdoi/102527971)
-
+[![DOI](https://zenodo.org/badge/102527971.svg)](https://zenodo.org/badge/latestdoi/102527971)
 
 ## Overview
 This model attempts to model the reactivation of a tuberculosis granuloma.
