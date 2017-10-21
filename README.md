@@ -11,8 +11,8 @@ and the movement of tuberculosis bacteria through the deteriorated granuloma.
 
 
 ## TB Granuloma Activation Model
-### Authors
-Steve Ruggiero*, Minu Pilvankar*, Ashlee N. Ford Versypt, 
+### Code Authors
+Steve Ruggiero, Ashlee N. Ford Versypt, 
 School of Chemical Engineering,
 Oklahoma State University.
 Corresponding author: A. N. Ford Versypt, ashleefv@okstate.edu
