@@ -1,12 +1,11 @@
-# ComputationalTBModeling
-A computational model that attempts to capture the effect of MMP-1 on disease
-outcome.
+# tbActivationDynamics
+A computational model that aims to capture the effect of MMP-1 on tuberculosis (TB) disease outcome including initial activation (uncontrolled infection), latent infection (steady state), and the transition from latent to active TB after biological perturbations.
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.885362.svg)](https://doi.org/10.5281/zenodo.885362)
 
 ## Overview
 This model attempts to model the reactivation of a tuberculosis granuloma.
-The model is built on top of a prexisting model by Sud et. al.
+The model is built on top of a model of the initial immune response by Sud, D.; Bigbee, C.; Flynn, J.L.; Kirschner, D.E. Contribution of CD8+ T cells to control of Mycobacterium tuberculosis infection. {\em J. Immunol.} {\bf 2008}, {\em 176}, 4296-4314.
 This model attempts to capture the upregulation of MMP-1 inside of a tuberculosis granuloma, the breakdown of collagen catalyzed by MMP-1,
 and the movement of tuberculosis bacteria through the deteriated granuloma.
 
