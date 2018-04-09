@@ -1,4 +1,6 @@
 # tbActivationDynamics
+tbActivationDynamics: open-source Python code for tuberculosis granuloma activation model
+
 A computational model that aims to capture the effect of MMP-1 on tuberculosis (TB) disease outcome including initial activation (uncontrolled infection), latent infection (steady state), and the transition from latent to active TB after biological perturbations.
 
 [![DOI](https://zenodo.org/badge/102527971.svg)](https://zenodo.org/badge/latestdoi/102527971) 
@@ -18,7 +20,7 @@ Oklahoma State University.
 Corresponding author: A. N. Ford Versypt, ashleefv@okstate.edu
 
 ### Related publication for model details
-Steve Ruggiero*, Minu Pilvankar*, Ashlee N. Ford Versypt, Mathematical Modeling of Tuberculosis Granuloma Activation, submitted to Processes, 2017.
+Steve Ruggiero*, Minu Pilvankar*, Ashlee N. Ford Versypt, Mathematical Modeling of Tuberculosis Granuloma Activation, Processes, 5, 79, 2017. DOI: 10.3390/pr5040079
 
 ### Main files
 
