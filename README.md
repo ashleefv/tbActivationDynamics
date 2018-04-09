@@ -1,5 +1,5 @@
 # tbActivationDynamics
-tbActivationDynamics: open-source Python code for tuberculosis granuloma activation model
+tbActivationDynamics: open-source Python code for a mathematical model of tuberculosis granuloma activation
 
 A computational model that aims to capture the effect of MMP-1 on tuberculosis (TB) disease outcome including initial activation (uncontrolled infection), latent infection (steady state), and the transition from latent to active TB after biological perturbations.
 
@@ -12,7 +12,7 @@ This model includes the upregulation of MMP-1 inside of a tuberculosis granuloma
 and the movement of tuberculosis bacteria through the deteriorated granuloma.
 
 
-## TB Granuloma Activation Model
+## TB Granuloma Activation Mathematical Model
 ### Code Authors
 Steve Ruggiero, Ashlee N. Ford Versypt, 
 School of Chemical Engineering,
