@@ -6,7 +6,7 @@ A computational model that aims to capture the effect of MMP-1 on tuberculosis (
 [![DOI](https://zenodo.org/badge/102527971.svg)](https://zenodo.org/badge/latestdoi/102527971) 
 
 ## Overview
-This model attempts to model the reactivation of a tuberculosis granuloma.
+This model attempts to simulate the reactivation of a tuberculosis granuloma.
 The model is built on top of a model of the initial immune response by Sud, D.; Bigbee, C.; Flynn, J.L.; Kirschner, D.E. Contribution of CD8+ T cells to control of Mycobacterium tuberculosis infection. J. Immunol. 2008, 176, 4296-4314.
 This model includes the upregulation of MMP-1 inside of a tuberculosis granuloma, the breakdown of collagen catalyzed by MMP-1,
 and the movement of tuberculosis bacteria through the deteriorated granuloma.
